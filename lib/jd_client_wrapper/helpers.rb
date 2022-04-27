@@ -20,7 +20,7 @@ module JdClientWrapper
     def encrypt_data(params = {})
       query_string = URI.encode_www_form(params.sort)
 
-      cipher = OpenSSL::Cipher::Cipher.new(CIPHER_METHOD)
+      cipher = OpenSSL::Cipher.new(CIPHER_METHOD)
       cipher.encrypt
       cipher.key = private_key[0..31]
       cipher.iv = iv
@@ -41,7 +41,7 @@ module JdClientWrapper
     # }
 
     def decrypt_data(encrypted_data)
-      cipher = OpenSSL::Cipher::Cipher.new(CIPHER_METHOD)
+      cipher = OpenSSL::Cipher.new(CIPHER_METHOD)
       cipher.decrypt
       cipher.key = private_key[0..31]
       cipher.iv = iv
